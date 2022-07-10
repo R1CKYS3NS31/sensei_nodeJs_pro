@@ -1,0 +1,19 @@
+{
+  "name": "nodejs",
+  "version": "1.0.0",
+  "description": "sensei node pro-skills",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DERRICKSONNDAMBUKI/sensei_nodejs.git"
+  },
+  "author": "rickysensei",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DERRICKSONNDAMBUKI/sensei_nodejs/issues"
+  },
+  "homepage": "https://github.com/DERRICKSONNDAMBUKI/sensei_nodejs#readme"
+}
