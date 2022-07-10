@@ -25,3 +25,5 @@ if (!username) {
 }
 // Print the message to the console.
 console.log("Hello %s!", username);
+// Make this file executable with chmod 700 FILE_NAME
+// Run the app with ./APP_NAME Ricky
