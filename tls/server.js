@@ -18,7 +18,8 @@ const server = tls.createServer(options,(socket)=>{
     socket.write('I am sending you a message.')
 
     // print the data that we received
-    socket.on('data', (data)={
-        
+    socket.on('data', (data)=>{
+        console.log('Received: %s [it is %d bytes long]',
+        data.toString().replace(/(\n)/gm,""),data.length);
     })
 })
