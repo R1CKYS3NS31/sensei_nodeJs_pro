@@ -1,5 +1,5 @@
 {
-  "name": "nodejs",
+  "name": "httpServer",
   "version": "1.0.0",
   "description": "sensei node pro-skills",
   "main": "index.js",
