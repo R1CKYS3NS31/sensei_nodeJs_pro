@@ -23,4 +23,18 @@ const client = tls.connect(PORT,HOST,options,()=>{
     // send a friendly message
     client.write('I am the client sending you a message.')
 })
-client
+client.on('data',(data)=>{
+    console.log('Received: %s [it is %d bytes long]',
+    data.toSTring().replace(/(\n)/gm,""));
+    client.end()
+})
+
+client.on('close',()=>{
+    console.log('Connection closed!');
+})
+// when an error occures, show it
+client.on('error',(error)=>{
+    console.error(error);
+    // close the connection after the error ocurred
+    client.destroy()
+})
