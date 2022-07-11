@@ -14,3 +14,11 @@ app.put("home", (req, res, next) => {
 app.delete("home", (req, res, next) => {
   // delete codes
 });
+
+// define the same behavier for a route and all HTTP methods
+app.all("/myPath", (req, res, next) => {});
+// or
+app.use("/myPath", (req, res, next) => {});
+// or
+app.use("*", (req, res, next) => {});
+// * wildcard will route for all paths
