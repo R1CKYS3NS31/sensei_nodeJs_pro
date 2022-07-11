@@ -20,4 +20,7 @@ const client = tls.connect(PORT,HOST,options,()=>{
     }else{
         console.log('Connection not authorized: '+client.authorizationError);
     }
+    // send a friendly message
+    client.write('I am the client sending you a message.')
 })
+client
