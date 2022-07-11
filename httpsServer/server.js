@@ -14,3 +14,5 @@ const app = (req, res) => {
 };
 
 https.createServer(httpsOptions, app).listen(4000);
+// if you also want to support http request
+http.createServer(app).listen(8000)
