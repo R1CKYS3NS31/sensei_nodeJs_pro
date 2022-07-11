@@ -13,8 +13,8 @@ var routes = {
 };
 
 // port
-const port = 8000;
-
+const port = process.env.PORT||8080;
+// server
 http
   .createServer((req, res) => {
     if (req.url in routes) {
