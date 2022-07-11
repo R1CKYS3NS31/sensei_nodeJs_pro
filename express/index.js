@@ -1,13 +1,18 @@
-const express = require('express')
+// Import the top-level function of express
+const express = require("express");
 
-const app = express()
+// Creates an Express application using the top-level function
+const app = express();
 
-const port = 8000
+// Define port number as 3000
+const port = 3000;
 
-app.get('/',(request,response)=>{
-    response.send('Hello, Ricky!')
-})
+// Routes HTTP GET requests to the specified path "/" with the specified callback function
+app.get("/", function (request, response) {
+  response.send("Hello, World!");
+});
 
-app.listen(port,()=>{
-    console.log('Server listening on http://0.0.0.0:'+port);
-})
+// Make the app listen on port 3000
+app.listen(port, function () {
+  console.log("Server listening on http://localhost:" + port);
+});
