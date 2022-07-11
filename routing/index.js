@@ -18,11 +18,11 @@ const port = 8000;
 http
   .createServer((req, res) => {
     if (req.url in routes) {
-      return routes[res.url](req, res);
+      return routes[req.url](req, res);
     }
     res.writeHead(404);
     res.end(http.STATUS_CODES[404]);
   })
-  .isten(port, () => {
-    console.log("Server listening on http://localhost:" + port);
+  .listen(port, () => {
+    console.log("Server listening on http://0.0.0.0:" + port);
   });
