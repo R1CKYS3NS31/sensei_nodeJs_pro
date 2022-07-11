@@ -27,3 +27,5 @@ app
     })
   )
   .listen(8000);
+// When accessing http://<hostname>:8080/api/v1/service1/greet?name=World the output will be Hello, World and
+//  accessing http://<hostname>:8080/api/v1/service2/greet?name=World the output will be Hi, World .
