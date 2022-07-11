@@ -3,7 +3,7 @@
 const tls = require("tls");
 const fs = require("fs");
 
-const PORT = 8080;
+const PORT = 8001;
 const HOST = "0.0.0.0";
 
 // Pass the certs to the server and let it know to process even unauthorized certs
