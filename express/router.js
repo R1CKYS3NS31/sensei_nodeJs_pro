@@ -22,3 +22,10 @@ app.use("/myPath", (req, res, next) => {});
 // or
 app.use("*", (req, res, next) => {});
 // * wildcard will route for all paths
+
+// chain route definations for a single path
+app
+  .route("/home")
+  .get((req, res, next) => {})
+  .post((req, res, next) => {})
+  .put((req, res, next) => {});
