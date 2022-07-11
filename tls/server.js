@@ -25,18 +25,18 @@ const server = tls.createServer(options, (socket) => {
       data.length
     );
   });
-//   let us know when the transmission is over
-socket.listen(PORT,HOST,()=>{
-    console.log('EOT (End Of Transmission)');
-})
+  //   let us know when the transmission is over
+  socket.on("end", () => {
+    console.log("EOT (End Of Transmission)");
+  });
 });
 // start listening on a specific port and address
-server.listen(PORT,HOST,()=>{
-    console.log('listening at http://%s:%s',HOST,PORT);
-})
+server.listen(PORT, HOST, () => {
+  console.log("listening at http://%s:%s", HOST, PORT);
+});
 // when an error occurs, show it
-server.on('error',()=>{
-    console.error(error);
-    // close the connection after the error occurred.
-    server.destroy()
-})
+server.on("error", () => {
+  console.error(error);
+  // close the connection after the error occurred.
+  server.destroy();
+});
