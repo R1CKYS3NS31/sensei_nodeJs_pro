@@ -28,11 +28,24 @@ fs.readFile(
 );
 
 // listing directory contents
+// Read the contents of the directory /usr/local/bin asynchronously.
+// The callback will be invoked once the operation has either completed
+// or failed.
+fs.readdir("/usr/local/bin", (err, files) => {
+    // on error, show it and return
+  if (err) return console.error(err);
+  // files is an array containing the names of all entries
+  // in the directory, excluding '.' (the directory itself)
+  // and '..' (the parent directory).
 
-fs.readdir('/usr/local/bin',(err,files)=>{
+  // display directory entries
+  console.log(files.join(", "));
+});
 
-    if (err) return console.error(err);
-
-    // display directory entries
-    console.log(files.join(''));
-})
+// asynchronous variant
+let files
+try {
+    files = fs.readdirSync('/var/tmp')
+} catch (error) {
+    console.error(error);
+}
