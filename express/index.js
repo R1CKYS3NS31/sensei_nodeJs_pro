@@ -28,6 +28,7 @@ app.get("/", function (request, response) {
 
 //GET /names/john
 app.get("/names/:name", function (req, res, next) {
+  // getting infor form request
   if (req.params.name == "john") {
     return res.send("Valid Name");
   } else {
