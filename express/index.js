@@ -25,6 +25,7 @@ app.use(function (err, req, res, next) {
 app.get("/", function (request, response) {
   response.send("Hello, World!");
 });
+
 //GET /names/john
 app.get("/names/:name", function (req, res, next) {
   if (req.params.name == "john") {
@@ -34,11 +35,26 @@ app.get("/names/:name", function (req, res, next) {
     //pass to error handler
   }
 });
+
 //error handler
 app.use(function (err, req, res, next) {
   console.log(err.stack);
   // e.g., Not valid name
   return res.status(500).send("Internal Server Occurred");
+});
+
+// execute code before any req and after any res
+app.use(function (req, res, next) {
+  function afterResponse() {
+    res.removeListener("finish", afterResponse);
+    res.removeListener("close", afterResponse);
+    // actions after response
+  }
+  res.on("finish", afterResponse);
+  res.on("close", afterResponse);
+  // action before request
+  // eventually calling `next()`
+  next();
 });
 
 // Make the app listen on port 3000
