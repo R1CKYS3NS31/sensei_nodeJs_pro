@@ -20,3 +20,13 @@ fs.access(path, fs.constants.R_OK | fs.constants.W_OK, (err) => {
     console.log("can read/write %s", path);
   }
 });
+
+// synchronously
+// Check write permission
+try {
+    fs.accessSync(path, fs.constants.W_OK);
+    console.log('can write %s', path);
+    }
+    catch (err) {
+    console.log("%s doesn't exist", path);
+    }
