@@ -13,10 +13,16 @@ var fs = require("fs");
 // });
 
 // synchronous
-const mkdirSync = (dirPath)=>{
-try {
-    fs.mkdirSync(dirPath)
-} catch (error) {
-    if(error.code !=='EEXIST') throw error
-}
-}
+const mkdirSync = (dirPath) => {
+  try {
+    fs.mkdirSync(dirPath);
+  } catch (error) {
+    if (error.code == "EEXIST") {
+      console.error("Forlder Exists");
+    } else {
+      throw error;
+    }
+  }
+};
+
+mkdirSync("./existing-dir");
