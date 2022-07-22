@@ -4,7 +4,7 @@ let chunks = [];
 // We can use this variable to store the final data
 let fileBuffer;
 // Read file into stream.Readable
-let fileStream = fs.createReadStream('./tmp/text.txt');
+let fileStream = fs.createReadStream('./tmp/node.txt');
 // An error occurred with the stream
 fileStream.once('error', (err) => {
 // Be sure to handle this properly!
