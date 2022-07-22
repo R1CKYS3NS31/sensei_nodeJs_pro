@@ -1,16 +1,16 @@
 var fs = require("fs");
 
 // asynchronous
-// const mkdir = (dirPath, callback) => {
-//   fs.mkdir(dirPath, (err) => {
-//     callback(err && err.code !== "EEXIST" ? err : null);
-//   });
-// };
+const mkdir = (dirPath, callback) => {
+  fs.mkdir(dirPath, (err) => {
+    callback(err && err.code !== "EEXIST" ? err : null);
+  });
+};
 
-// mkdir("./existingDir", (err) => {
-//   if (err) return console.error(err.code);
-//   // Do something with './existingDir' here
-// });
+mkdir("./existingDir", (err) => {
+  if (err) console.error(err.code);
+  // Do something with './existingDir' here
+});
 
 // synchronous
 const mkdirSync = (dirPath) => {
