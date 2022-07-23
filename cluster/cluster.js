@@ -1,5 +1,5 @@
+// The cluster module allows you to easily create child processes that all share server ports.
 const cluster = require("cluster");
-const http = require("http");
 const numCPUs = require("os").cpus().length;
 
 if (cluster.isMaster) {
