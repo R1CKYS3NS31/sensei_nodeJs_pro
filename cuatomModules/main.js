@@ -1,9 +1,9 @@
 // hello/main.js
 // We can include the other files we've defined by using the `require()` method
-var hw = require('./hello-world.js'),
-hm = require('./hello-mars.js'),
-hv = require('./hello-venus.js'),
-hj = require('./hello-jupiter.js'),
+var hw = require('./hello_world.js'),
+hm = require('./hello_mars.js'),
+hv = require('./hello_venus.js'),
+hj = require('./hello_jupiter.js'),
 hu = require('./index.js');
 // Because we assigned our function to the entire `module.exports` object, we
 // can use it directly
