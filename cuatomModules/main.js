@@ -1,6 +1,6 @@
 // hello/main.js
 // We can include the other files we've defined by using the `require()` method
-var hw = require("./hello_world.js"),
+const hw = require("./hello_world.js"),
   hm = require("./hello_mars.js"),
   hv = require("./hello_venus.js"),
   hj = require("./hello_jupiter.js"),
