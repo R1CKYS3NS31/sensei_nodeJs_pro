@@ -1,3 +1,3 @@
-module.exports = function(subject) {
-    console.log('Hello ' + subject);
-    };
+module.exports = (subject) => {
+  console.log("Hello " + subject);
+};

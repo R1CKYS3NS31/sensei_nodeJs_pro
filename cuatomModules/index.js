@@ -1,4 +1,4 @@
 // hello/index.js
-module.exports = function(){
-    console.log('Hej');
-    };
+module.exports = () => {
+  console.log("Hej");
+};
