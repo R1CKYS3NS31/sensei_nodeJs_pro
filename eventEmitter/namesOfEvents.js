@@ -11,10 +11,11 @@ emitter
   })
   .on("message", () => {
     console.log("this is not the right message");
-  }).on('data',()=>{
-    console.log('a data just occured!');
   })
+  .on("data", () => {
+    console.log("a data just occured!");
+  });
 
 console.log(emitter.eventNames());
-emitter.removeAllListeners('data')
+emitter.removeAllListeners("data");
 console.log(emitter.eventNames());
