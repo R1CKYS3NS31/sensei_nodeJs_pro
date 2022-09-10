@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "properties-reader": "^2.2.0"
+  }
+}
