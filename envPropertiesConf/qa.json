@@ -1,0 +1,8 @@
+{
+    "PORT": 3001,
+    "DB": {
+        "host": "where_dp_is_hosted",
+        "user": "bob",
+        "password": 54321
+    }
+}

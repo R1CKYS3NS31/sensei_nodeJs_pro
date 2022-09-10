@@ -1,0 +1,8 @@
+{
+    "PORT": 3000,
+    "DB": {
+        "host": "localhost",
+        "user": "bob",
+        "password": 12345
+    }
+}
