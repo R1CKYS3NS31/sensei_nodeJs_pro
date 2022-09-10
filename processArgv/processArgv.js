@@ -8,4 +8,5 @@ for (i = 2; i < process.argv.length; i++) { // loop begins with 2 because first 
     
 }
 console.log(sum); 
-// ricky has bugs #NaN
+// $ node index.js 2 5 6 7
+// Output will be 20
