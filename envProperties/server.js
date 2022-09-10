@@ -4,3 +4,5 @@ const properties = new PropertiesReader(environment);
 
 const someVal = properties.get('main.app.port')
 console.log(someVal);
+
+// ricky has bugs
