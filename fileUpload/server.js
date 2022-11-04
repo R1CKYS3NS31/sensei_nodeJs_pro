@@ -41,10 +41,14 @@ http
         upload(req, res, (err) => {
           if (err instanceof multer.MulterError) {
             console.error("multer error: " + err);
-            return res.write(err.code);
+            // return 
+            res.write(err.message);
+            res.end()
           } else if (err) {
             // unknown error
-            console.error(err);
+            // console.error(err);
+            res.write(`${err}`);
+            res.end()
           } else {
             // success, image successfully uploaded
             res.write("success, image successfully uploade!");
@@ -56,6 +60,7 @@ http
         res.write(err);
         res.end();
       }
+      // localhost:8080/
     } else {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(
