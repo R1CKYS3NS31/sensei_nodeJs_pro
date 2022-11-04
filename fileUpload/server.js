@@ -1,29 +1,17 @@
 const http = require("http");
-const formidable = require("formidable");
-const fs = require("fs");
 const multer = require("multer");
 const path = require("path");
 
 http
   .createServer(function (req, res) {
     if (req.url == "/fileupload") {
-      //     var form = new formidable.IncomingForm();
-      //     form.parse(req, function (err, fields, files) {
-      //       var oldpath = files.filetoupload.filepath;
-      //       var newpath = '/home/rickysensei/Ricky_Sensei_Lab/Node/fileUpload/uploads/' + files.filetoupload.originalFilename;
-      //       fs.rename(oldpath, newpath, function (err) {
-      //         if (err) console.error(err);
-      //         res.write('File uploaded and moved!');
-      //         res.end();
-      //       });
-      //  });
       const storage = multer.diskStorage({
         destination: (req, file, cb) => {
           // uploads is the upload_forlder_name
           cb(null, "uploads");
         },
         filename: (req, file, cb) => {
-          cb(null, file.fieldname + "_" + Date.now + ".jpg");
+          cb(null, file.fieldname + "_" + Date.now() + ".jpg");
         },
       });
       // define max size
@@ -31,7 +19,7 @@ http
 
       const upload = multer({
         storage: storage,
-        // limits: { fileSize: maxSize },
+        limits: { fileSize: maxSize },
         // filter to accept only images
         fileFilter: (req, file, cb) => {
           let fileTypes = /jpeg|jpg|png/;
@@ -47,19 +35,27 @@ http
               fileTypes
           );
         },
-        // mypic is the name of the file attribute
+        // filetoupload is the name of the input file attribute in the form
       }).single("filetoupload");
-      upload(req, res, (err) => {
-        if (err) {
-          console.error(err);
-          res.write(err);
-          res.end()
-        } else {
-          // success, image successfully uploaded
-          res.write("success, image successfully uploade!");
-          res.end()
-        }
-      });
+      try {
+        upload(req, res, (err) => {
+          if (err instanceof multer.MulterError) {
+            console.error("multer error: " + err);
+            return res.write(err.code);
+          } else if (err) {
+            // unknown error
+            console.error(err);
+          } else {
+            // success, image successfully uploaded
+            res.write("success, image successfully uploade!");
+            res.end();
+          }
+        });
+      } catch (err) {
+        console.error(err);
+        res.write(err);
+        res.end();
+      }
     } else {
       res.writeHead(200, { "Content-Type": "text/html" });
       res.write(
